@@ -1,46 +1,20 @@
-##[options]
+##[common constants]
+scoreboard objectives add constants dummy
+scoreboard players set .2 constants 2
 
+##[simulation options]
 scoreboard objectives add options dummy
-#set time scale if unset
-execute unless score .timestep options = .timestep options run scoreboard players set .timestep options 5
-#set iter options
-scoreboard players set .iter_dim1 options 3
-scoreboard players set .iter_dim2 options 3
-scoreboard players set .chunk_size options 12
+#set time scale to default if unset
+execute unless score .chunk_size options matches 2.. run scoreboard players set .chunk_size options 16
+execute unless score .time_step options matches 1.. run scoreboard players set .time_step options 1
 
 ##[chunks]
+scoreboard objectives add chunk dummy
+scoreboard players reset * chunk
+scoreboard players operation .size/2 chunk = .chunk_size options
+scoreboard players operation .size/2 chunk /= .2 constants
 
-scoreboard objectives add chunk_options dummy
-scoreboard players reset * chunk_options
 
-#iteration
-scoreboard objectives add iter dummy
-scoreboard players reset * iter
-scoreboard objectives add cur_iter dummy
-scoreboard players reset * cur_iter
-scoreboard objectives add offset dummy
-scoreboard players reset * offset
-
-#repetitions
-scoreboard objectives add reps_left dummy
-scoreboard players reset * reps_left
-scoreboard objectives add rep dummy
-scoreboard players reset * rep
-
-#diagonals
-scoreboard objectives add diag dummy
-scoreboard players reset * diag
-
-function cells:util/calculate_chunk_options
-
-##[other]
-
-#time
+##[time]
 scoreboard objectives add time dummy
 scoreboard players set .until_next_step time 0
-
-#common constants
-scoreboard objectives add const dummy
-
-#debug
-scoreboard objectives add validate
