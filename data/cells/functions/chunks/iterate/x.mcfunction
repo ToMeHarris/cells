@@ -1,4 +1,4 @@
-function cells:simulate/block
+function cells:chunks/iterate/y
 execute positioned ~2 ~ ~ run function cells:chunks/iterate/y
 execute positioned ~4 ~ ~ run function cells:chunks/iterate/y
 execute positioned ~6 ~ ~ run function cells:chunks/iterate/y
