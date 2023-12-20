@@ -14,6 +14,9 @@ scoreboard players reset * chunk
 scoreboard players operation .size/2 chunk = .chunk_size options
 scoreboard players operation .size/2 chunk /= .2 constants
 
+##[simulation]
+scoreboard objectives add simulation dummy
+
 ##[time]
 scoreboard objectives add time dummy
 scoreboard players set .until_next_step time 0
