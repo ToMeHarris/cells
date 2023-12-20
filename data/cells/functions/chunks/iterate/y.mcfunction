@@ -1,4 +1,3 @@
-function cells:chunks/iterate/z
 execute positioned ~ ~2 ~ run function cells:chunks/iterate/z
 execute positioned ~ ~4 ~ run function cells:chunks/iterate/z
 execute positioned ~ ~6 ~ run function cells:chunks/iterate/z
